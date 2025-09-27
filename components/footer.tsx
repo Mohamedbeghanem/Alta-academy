@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { GraduationCap, Phone, Mail, MapPin, Clock, Users, Award, BookOpen, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   const quickLinks = [
@@ -10,7 +11,6 @@ export function Footer() {
     { name: "Courses", href: "/courses" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Team", href: "/team" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" }
   ]
@@ -28,26 +28,26 @@ export function Footer() {
     {
       icon: Phone,
       label: "Primary Phone",
-      value: "+213 661 606 706",
-      href: "tel:+213661606706"
+      value: "+213 6661606706",
+      href: "tel:+2136661606706"
     },
     {
       icon: Phone,
       label: "Secondary Phone", 
-      value: "+213 770 222 385",
+      value: "+213 770222385",
       href: "tel:+213770222385"
     },
     {
       icon: Mail,
       label: "Primary Email",
-      value: "altaacademybyimplantaly@gmail.com",
-      href: "mailto:altaacademybyimplantaly@gmail.com"
+      value: "altaacademy@implantaly.com",
+      href: "mailto:altaacademy@implantaly.com"
     },
     {
       icon: Mail,
       label: "Secondary Email",
-      value: "altaacademy@implantaly.com",
-      href: "mailto:altaacademy@implantaly.com"
+      value: "altaacademybyimplantaly@gmail.com",
+      href: "mailto:altaacademybyimplantaly@gmail.com"
     },
     {
       icon: MapPin,
@@ -86,15 +86,13 @@ export function Footer() {
             {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="relative">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 via-white to-red-600 rounded-2xl flex items-center justify-center shadow-lg border-2 border-green-500">
-                    <span className="text-green-700 font-bold text-xl">A</span>
-                  </div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-red-500 to-green-500 rounded-full animate-pulse"></div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-2xl font-bold bg-gradient-to-r from-green-600 via-green-700 to-red-600 bg-clip-text text-transparent">Alta Academy</span>
-                </div>
+                <Image
+                  src="/brands/alta-academy-logo-192.png"
+                  alt="Alta Academy logo"
+                  width={160}
+                  height={48}
+                  className="h-12 w-auto"
+                />
               </div>
               <p className="text-gray-300 leading-relaxed mb-6">
                 Leading dental education platform committed to advancing professional skills and knowledge through expert instruction and hands-on learning.

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone, GraduationCap, BookOpen, Users, Award, Star, ArrowRight, Calendar, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -79,7 +80,6 @@ export function Navigation() {
     { name: "Courses", href: "/courses", icon: BookOpen },
     { name: "About", href: "/about", icon: Users },
     { name: "Services", href: "/services", icon: Award },
-    { name: "Team", href: "/team", icon: Star },
     { name: "Blog", href: "/blog", icon: BookOpen },
     { name: "Contact", href: "/contact", icon: Phone }
   ]
@@ -105,17 +105,14 @@ export function Navigation() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-green-600 via-white to-red-600 rounded-2xl flex items-center justify-center shadow-lg border-2 border-green-500 group-hover:shadow-xl transition-all duration-300">
-                  <span className="text-green-700 font-bold text-lg lg:text-xl">A</span>
-                </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 lg:w-4 lg:h-4 bg-gradient-to-r from-red-500 to-green-500 rounded-full animate-pulse"></div>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-green-600 via-green-700 to-red-600 bg-clip-text text-transparent">
-                  Alta Academy
-                </span>
-              </div>
+              <Image
+                src="/brands/alta-academy-logo-192.png"
+                alt="Alta Academy logo"
+                width={192}   // optional, not critical if using Tailwind sizes
+                height={64}
+                priority
+                className="h-14 w-auto lg:h-16" // now ~56px on mobile, ~64px on desktop
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -174,10 +171,13 @@ export function Navigation() {
             {/* Menu Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-green-600 via-white to-red-600 rounded-2xl flex items-center justify-center border-2 border-green-500">
-                  <span className="text-green-700 font-bold text-lg">A</span>
-                </div>
-                <span className="text-xl font-bold text-gray-900">Alta Academy</span>
+                <Image
+                  src="/brands/alta-academy-logo-192.png"
+                  alt="Alta Academy logo"
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto"
+                />
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -193,11 +193,11 @@ export function Navigation() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-green-600" />
-                  <span className="text-gray-700">+213 661 606 706</span>
+                  <span className="text-gray-700">+213 6661606706</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-green-600" />
-                  <span className="text-gray-700">altaacademybyimplantaly@gmail.com</span>
+                  <span className="text-gray-700">altaacademy@implantaly.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-green-600" />

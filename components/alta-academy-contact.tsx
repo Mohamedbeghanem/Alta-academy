@@ -10,28 +10,28 @@ export function AltaAcademyContact() {
     {
       icon: Phone,
       title: "Primary Phone",
-      value: "+213 661 606 706",
+      value: "+213 6661606706",
       description: "Main contact line",
       gradient: "from-emerald-500 to-teal-500"
     },
     {
       icon: Phone,
       title: "Secondary Phone",
-      value: "+213 770 222 385",
+      value: "+213 770222385",
       description: "Alternative contact",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
       icon: Mail,
       title: "Primary Email",
-      value: "altaacademybyimplantaly@gmail.com",
+      value: "altaacademy@implantaly.com",
       description: "Main email address",
       gradient: "from-purple-500 to-pink-500"
     },
     {
       icon: Mail,
       title: "Secondary Email",
-      value: "altaacademy@implantaly.com",
+      value: "altaacademybyimplantaly@gmail.com",
       description: "Alternative email",
       gradient: "from-orange-500 to-red-500"
     }
