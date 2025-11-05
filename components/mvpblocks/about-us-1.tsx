@@ -1,231 +1,120 @@
-'use client';
+"use client"
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Spotlight } from '@/components/ui/spotlight';
-import { BorderBeam } from '@/components/ui/border-beam';
-import { CardHoverEffect } from '@/components/ui/pulse-card';
-import {
-  Globe,
-  Users,
-  Heart,
-  Lightbulb,
-  Sparkles,
-  Rocket,
-  Target,
-} from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card"
+import { Users, Award, Clock, Star, TrendingUp, BookOpen, GraduationCap, Shield } from "lucide-react"
+import Image from "next/image"
 
-interface AboutUsProps {
-  title?: string;
-  subtitle?: string;
-  mission?: string;
-  vision?: string;
-  values?: Array<{
-    title: string;
-    description: string;
-    icon: keyof typeof iconComponents;
-  }>;
-  className?: string;
-}
+export function AboutUs1() {
+  const stats = [
+    {
+      icon: Users,
+      value: "1000+",
+      label: "Students Trained",
+    },
+    {
+      icon: Award,
+      value: "50+",
+      label: "Courses Available",
+    },
+    {
+      icon: Clock,
+      value: "95%",
+      label: "Success Rate",
+    },
+    {
+      icon: Star,
+      value: "4.9/5",
+      label: "Student Rating",
+    },
+  ]
 
-const iconComponents = {
-  Users: Users,
-  Heart: Heart,
-  Lightbulb: Lightbulb,
-  Globe: Globe,
-  Sparkles: Sparkles,
-  Rocket: Rocket,
-  Target: Target,
-};
-
-const defaultValues: AboutUsProps['values'] = [
-  {
-    title: 'Innovation',
-    description:
-      'We constantly push boundaries and explore new possibilities to create cutting-edge solutions.',
-    icon: 'Lightbulb',
-  },
-  {
-    title: 'Collaboration',
-    description:
-      'We believe in the power of teamwork and diverse perspectives to achieve extraordinary results.',
-    icon: 'Users',
-  },
-  {
-    title: 'Excellence',
-    description:
-      'We strive for perfection in everything we do, consistently delivering high-quality work.',
-    icon: 'Sparkles',
-  },
-  {
-    title: 'Impact',
-    description:
-      "We measure our success by the positive difference we make in people's lives and businesses.",
-    icon: 'Globe',
-  },
-];
-
-export default function AboutUs1() {
-  const aboutData = {
-    title: 'About Us',
-    subtitle:
-      'Building the future of web development with beautiful, reusable components.',
-    mission:
-      'Our mission is to democratize web development by providing high-quality, customizable components that help developers build stunning websites quickly and efficiently.',
-    vision:
-      'We envision a world where creating beautiful websites is accessible to everyone, regardless of their design or development experience.',
-    values: defaultValues,
-    className: 'relative overflow-hidden py-20',
-  };
-
-  const missionRef = useRef(null);
-  const valuesRef = useRef(null);
-
-  const missionInView = useInView(missionRef, { once: true, amount: 0.3 });
-  const valuesInView = useInView(valuesRef, { once: true, amount: 0.3 });
+  const features = [
+    {
+      icon: GraduationCap,
+      title: "Expert Instructors",
+      description: "Learn from industry-leading professionals with decades of experience",
+    },
+    {
+      icon: Users,
+      title: "Hands-on Training",
+      description: "Practical experience with real cases and live patient scenarios",
+    },
+    {
+      icon: Award,
+      title: "Certification",
+      description: "Recognized qualifications and continuing education credits",
+    },
+    {
+      icon: Clock,
+      title: "Flexible Learning",
+      description: "Online and in-person options to fit your schedule",
+    },
+    {
+      icon: BookOpen,
+      title: "Comprehensive Curriculum",
+      description: "Structured learning paths from beginner to advanced levels",
+    },
+    {
+      icon: Shield,
+      title: "Quality Assurance",
+      description: "Rigorous standards and continuous improvement processes",
+    }
+  ]
 
   return (
-    <section className="relative w-full overflow-hidden pt-20">
-      <Spotlight
-        gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(336, 100%, 50%, 0.08) 0, hsla(341, 100%, 55%, 0.04) 50%, hsla(336, 100%, 45%, 0) 80%)"
-        gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(333, 100%, 85%, 0.08) 0, hsla(335, 100%, 55%, 0.04) 80%, transparent 100%)"
-        gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(332, 100%, 85%, 0.06) 0, hsla(327, 100%, 85%, 0.06) 80%, transparent 100%)"
-      />
-
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="mx-auto mb-16 max-w-2xl text-center"
-        >
-          <h1 className="from-foreground/80 via-foreground to-foreground/80 bg-gradient-to-r bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl md:text-6xl">
-            {aboutData.title}
-          </h1>
-          <p className="text-muted-foreground mt-6 text-xl">
-            {aboutData.subtitle}
-          </p>
-        </motion.div>
-
-        {/* Mission & Vision Section */}
-        <div ref={missionRef} className="relative mx-auto mb-24 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={
-              missionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
-            }
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="relative z-10 grid gap-12 md:grid-cols-2"
-          >
-            <motion.div
-              whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-              className="group border-border/40 relative block overflow-hidden rounded-2xl border bg-gradient-to-br p-10 backdrop-blur-3xl"
-            >
-              <BorderBeam
-                duration={8}
-                size={300}
-                className="via-primary/40 from-transparent to-transparent"
-              />
-
-              <div className="from-primary/20 to-primary/5 mb-6 inline-flex aspect-square h-16 w-16 flex-1 items-center justify-center rounded-2xl bg-gradient-to-br backdrop-blur-sm">
-                <Rocket className="text-primary h-8 w-8" />
-              </div>
-
-              <div className="space-y-4">
-                <h2 className="from-primary/90 to-primary/70 mb-4 bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent">
-                  Our Mission
-                </h2>
-
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {aboutData.mission}
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-              className="group border-border/40 relative block overflow-hidden rounded-2xl border bg-gradient-to-br p-10 backdrop-blur-3xl"
-            >
-              <BorderBeam
-                duration={8}
-                size={300}
-                className="from-transparent via-blue-500/40 to-transparent"
-                reverse
-              />
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 backdrop-blur-sm">
-                <Target className="h-8 w-8 text-blue-500" />
-              </div>
-
-              <h2 className="mb-4 bg-gradient-to-r from-blue-500/90 to-blue-500/70 bg-clip-text text-3xl font-bold text-transparent">
-                Our Vision
-              </h2>
-
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                {aboutData.vision}
+    <section className="w-full py-12 md:py-24 lg:py-32">
+      <div className="container px-4 md:px-6">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Alta Academy</h1>
+              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                We are a leading dental education platform committed to advancing professional skills and knowledge. Our
+                mission is to provide the highest quality training to dental professionals worldwide.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              {stats.map((stat, index) => (
+                <div key={index} className="flex items-center space-x-4">
+                  <stat.icon className="h-8 w-8" />
+                  <div>
+                    <p className="text-2xl font-bold">{stat.value}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{stat.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative">
+            <Image
+              src="/modern-dental-office.png"
+              alt="About us"
+              width={600}
+              height={400}
+              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
+            />
+          </div>
         </div>
-
-        <div ref={valuesRef} className="mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="mb-12 text-center"
-          >
-            <h2 className="from-foreground/80 via-foreground to-foreground/80 bg-gradient-to-r bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
-              Our Core Values
-            </h2>
-            <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              The principles that guide everything we do and every decision we
-              make.
+        <div className="mt-16">
+          <div className="space-y-2 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Why Choose Us?</h2>
+            <p className="max-w-[900px] mx-auto text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              We offer a unique learning experience that combines theoretical knowledge with practical skills.
             </p>
-          </motion.div>
-
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {aboutData.values?.map((value, index) => {
-              const IconComponent = iconComponents[value.icon];
-
-              return (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={
-                    valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                  }
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.1 + 0.2,
-                    ease: 'easeOut',
-                  }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                >
-                  <CardHoverEffect
-                    icon={<IconComponent className="h-6 w-6" />}
-                    title={value.title}
-                    description={value.description}
-                    variant={
-                      index === 0
-                        ? 'purple'
-                        : index === 1
-                          ? 'blue'
-                          : index === 2
-                            ? 'amber'
-                            : 'rose'
-                    }
-                    glowEffect={true}
-                    size="lg"
-                  />
-                </motion.div>
-              );
-            })}
+          </div>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
+            {features.map((feature, index) => (
+              <Card key={index}>
+                <CardContent className="p-6">
+                  <feature.icon className="h-8 w-8 mb-4" />
+                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

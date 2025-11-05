@@ -55,12 +55,6 @@ export function Footer() {
       value: "Alger, Algeria",
       href: "#"
     },
-    {
-      icon: Clock,
-      label: "Business Hours",
-      value: "Mon-Fri: 8AM-6PM",
-      href: "#"
-    }
   ]
 
   const socialLinks = [
@@ -166,28 +160,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-
-          {/* Newsletter Section */}
-          <div className="mt-16 pt-8 border-t border-gray-700">
-            <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">Stay Updated</h3>
-              <p className="text-gray-300 mb-6">
-                Subscribe to our newsletter for the latest courses, industry insights, and exclusive offers.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-xl border border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                />
-                <button className="px-6 py-3 bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
-
         {/* Bottom Section */}
         <div className="border-t border-gray-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

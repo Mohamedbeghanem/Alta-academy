@@ -77,10 +77,9 @@ export function Navigation() {
 
   const navItems = [
     { name: "Home", href: "/", icon: GraduationCap },
-    { name: "Courses", href: "/courses", icon: BookOpen },
+    { name: "Live surgery", href: "/live-surgery", icon: BookOpen },
+    { name: "Workshops", href: "/workshops", icon: Award },
     { name: "About", href: "/about", icon: Users },
-    { name: "Services", href: "/services", icon: Award },
-    { name: "Blog", href: "/blog", icon: BookOpen },
     { name: "Contact", href: "/contact", icon: Phone }
   ]
 
@@ -131,8 +130,8 @@ export function Navigation() {
               {/* Desktop CTA */}
               <Button asChild className="bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105 px-6 py-3 rounded-xl border-0">
                 <Link href="/contact" className="flex items-center">
-                  Book Appointment
-                  <Calendar className="w-4 h-4 ml-2" />
+                  Contact Us
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
             </nav>
@@ -258,8 +257,8 @@ export function Navigation() {
             <div className="p-6 border-t border-gray-200">
               <Button asChild className="w-full bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105 py-4 rounded-xl border-0 text-lg font-semibold">
                 <Link href="/contact" className="flex items-center justify-center">
-                  Book Appointment
-                  <Calendar className="w-5 h-5 ml-2" />
+                  Contact Us
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
             </div>

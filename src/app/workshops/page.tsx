@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { Calendar, Clock, MapPin, Award, Filter, Search } from 'lucide-react';
-import { dentalCourses, DentalCourse } from './coursesData';
+import { dentalCourses, DentalCourse } from '@/lib/coursesData';
+import Link from 'next/link';
 
 function CourseCardGrid({ course }: { course: DentalCourse }) {
   const levelColors: Record<DentalCourse['level'], string> = {
@@ -12,71 +13,76 @@ function CourseCardGrid({ course }: { course: DentalCourse }) {
   };
 
   return (
-    <div className="group bg-white overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-xl">
-      <div className="relative h-[240px] w-full overflow-hidden">
-        <img
-          src={course.imageUrl}
-          alt={course.title}
-          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1.5 text-xs font-semibold rounded-full ${levelColors[course.level]}`}>
-            {course.level}
-          </span>
+    <Link href={`/courses/${course.id}`}>
+      <div className="group bg-white overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-xl">
+        <div className="relative h-[240px] w-full overflow-hidden">
+          <img
+            src={course.imageUrl}
+            alt={course.title}
+            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute top-4 right-4">
+            <span className={`px-3 py-1.5 text-xs font-semibold rounded-full ${levelColors[course.level]}`}>
+              {course.level}
+            </span>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4">
+            <div className="text-white text-xs font-medium mb-1 flex items-center">
+              <Award className="mr-1.5 h-4 w-4" />
+              {course.category}
+            </div>
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="text-white text-xs font-medium mb-1 flex items-center">
-            <Award className="mr-1.5 h-4 w-4" />
-            {course.category}
+
+        <div className="p-6">
+          <h3 className="mb-3 text-xl font-bold text-gray-900 line-clamp-1">{course.title}</h3>
+          <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
+
+          <div className="space-y-2 mb-4 text-sm text-gray-600">
+            {course.date && (
+              <div className="flex items-center">
+                <Calendar className="mr-2 h-4 w-4 text-blue-600" />
+                {course.date}
+              </div>
+            )}
+            {course.location && (
+              <div className="flex items-center">
+                <MapPin className="mr-2 h-4 w-4 text-blue-600" />
+                {course.location}
+              </div>
+            )}
+            <div className="flex items-center">
+              <Clock className="mr-2 h-4 w-4 text-blue-600" />
+              {course.duration}
+            </div>
+          </div>
+
+          {course.features && (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {course.features.map((feature: string) => (
+                <span key={feature} className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">
+                  {feature}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+            <div>
+              <p className="text-xs text-gray-500">Instructor</p>
+              <p className="text-sm font-semibold text-gray-900">{course.instructor}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-2xl font-bold text-blue-600">{course.price}</p>
+              <button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition-colors">
+                Enroll Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="p-5">
-        <h3 className="mb-2 text-lg font-bold text-gray-800 ">{course.title}</h3>
-        <p className="text-gray-500 text-sm mb-3 ">{course.description}</p>
-
-        <div className="space-y-1.5 mb-3 text-sm text-gray-500">
-          {course.date && (
-            <div className="flex items-center">
-              <Calendar className="mr-2 h-4 w-4 text-blue-500" />
-              {course.date}
-            </div>
-          )}
-          {course.location && (
-            <div className="flex items-center">
-              <MapPin className="mr-2 h-4 w-4 text-blue-500" />
-              {course.location}
-            </div>
-          )}
-          <div className="flex items-center">
-            <Clock className="mr-2 h-4 w-4 text-blue-500" />
-            {course.duration}
-          </div>
-        </div>
-
-        {course.features && (
-          <div className="mb-4 flex flex-wrap gap-2">
-            {course.features.map((feature: string) => (
-              <span key={feature} className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">
-                {feature}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-          <div>
-            <p className="text-xs text-gray-400">Instructor</p>
-            <p className="text-sm font-semibold text-gray-800">{course.instructor}</p>
-          </div>
-          <div className="text-right">
-            <p className="text-xl font-bold text-blue-500">{course.price}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    </Link>
   );
 }
 
@@ -99,27 +105,27 @@ export default function DentalCoursesFullPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
       {/* Hero Section */}
-      <section className=" text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <div className="max-w-3xl text-center mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Live Surgery Courses
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 mb-8">
-            Learn from the best with hands-on live surgery demonstrations and advanced training programs.
+            <p className="text-xl md:text-2xl text-blue-100 mb-8">
+              Master advanced dental techniques with hands-on training from world-class instructors
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 text-gray-900">
-                <p className="text-3xl font-bold ">{dentalCourses.length}+</p>
-                <p className="text-sm text-gray-500">Courses Available</p>
+            <div className="flex flex-wrap gap-4">
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                <p className="text-3xl font-bold">{dentalCourses.length}+</p>
+                <p className="text-sm text-blue-100">Courses Available</p>
               </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 text-gray-900">
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
                 <p className="text-3xl font-bold">15+</p>
-                <p className="text-sm text-gray-500">Expert Instructors</p>
+                <p className="text-sm text-blue-100">Expert Instructors</p>
               </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 text-gray-900">
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
                 <p className="text-3xl font-bold">5000+</p>
-                <p className="text-sm text-gray-500">Students Trained</p>
+                <p className="text-sm text-blue-100">Students Trained</p>
               </div>
             </div>
           </div>
