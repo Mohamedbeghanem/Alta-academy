@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Calendar, Clock, MapPin, Award, Filter, Search } from 'lucide-react';
-import { dentalCourses, DentalCourse } from './coursesData';
+import { dentalCourses, DentalCourse } from '@/lib/workshops';
 
 function CourseCardGrid({ course }: { course: DentalCourse }) {
   const levelColors: Record<DentalCourse['level'], string> = {

@@ -11,6 +11,8 @@ export interface DentalCourse {
   location?: string;
   category: string;
   features?: string[];
+  surgeon?: string;
+  complexity?: string;
 }
 
 export const dentalCourses: DentalCourse[] = [
@@ -26,9 +28,11 @@ export const dentalCourses: DentalCourse[] = [
     date: '09-10/05/2025',
     location: 'Hayatt Regeancy Algiers Airport',
     category: 'Prosthodontics',
+    surgeon: 'Mr.Didier Crescenzo',
+    complexity: 'Intermediate',
   },
   {
-    id: '1',
+    id: '2',
     title: 'Micro Stratification personnalisee sur zircone',
     description: 'Learn advanced root canal treatment techniques using surgical microscopes...',
     instructor: 'Mr.Didier Crescenzo',
@@ -39,9 +43,11 @@ export const dentalCourses: DentalCourse[] = [
     date: '07-08/02/2026',
     location: 'Hayatt Regeancy Algiers Airport',
     category: 'Prosthodontics',
+        surgeon: 'Mr.Didier Crescenzo',
+    complexity: 'Intermediate',
   },
   {
-    id: '1',
+    id: '3',
     title: 'Micro Stratification personnalisee sur zircone',
     description: 'Learn advanced root canal treatment techniques using surgical microscopes...',
     instructor: 'Mr.Didier Crescenzo',
@@ -52,5 +58,7 @@ export const dentalCourses: DentalCourse[] = [
     date: '9-10/05/2025',
     location: 'Hayatt Regeancy Algiers Airport',
     category: 'Prosthodontics',
+        surgeon: 'Mr.Didier Crescenzo',
+    complexity: 'Intermediate',
   },
 ];

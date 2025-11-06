@@ -1,20 +1,20 @@
-import { liveSurgerySessions } from '@/lib/liveSurgery';
+import { dentalCourses, DentalCourse } from '@/lib/workshops';
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Calendar, Clock, MapPin, User, BarChart, Award } from "lucide-react"
 
-export default async function LiveSurgeryDetailPage({ 
+export default async function WorkshopDetailPage({ 
   params 
 }: { 
   params: Promise<{ id: string }> 
 }) {
   const { id } = await params;
-  const liveSurgery = liveSurgerySessions.find((session) => session.id === id);
+  const Workshop = dentalCourses.find((session) => session.id === id);
 
-  if (!liveSurgery) {
-    notFound();
+  if (!Workshop) {
+    return notFound();
   }
 
   return (
@@ -24,8 +24,8 @@ export default async function LiveSurgeryDetailPage({
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-6">
               <Image
-                src={liveSurgery.imageUrl}
-                alt={liveSurgery.title}
+                src={Workshop.imageUrl}
+                alt={Workshop.title}
                 width={800}
                 height={600}
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
@@ -33,9 +33,9 @@ export default async function LiveSurgeryDetailPage({
             </div>
             <div className="space-y-6">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{liveSurgery.title}</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{Workshop.title}</h1>
                 <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  {liveSurgery.description}
+                  {Workshop.description}
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6">
@@ -43,42 +43,42 @@ export default async function LiveSurgeryDetailPage({
                   <User className="h-6 w-6" />
                   <div>
                     <p className="font-semibold">Surgeon</p>
-                    <p>{liveSurgery.surgeon}</p>
+                    <p>{Workshop.surgeon}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-6 w-6" />
                   <div>
                     <p className="font-semibold">Duration</p>
-                    <p>{liveSurgery.duration}</p>
+                    <p>{Workshop.duration}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <BarChart className="h-6 w-6" />
                   <div>
                     <p className="font-semibold">Complexity</p>
-                    <p>{liveSurgery.complexity || 'Beginner'}</p>
+                    <p>{Workshop.complexity || 'Beginner'}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Calendar className="h-6 w-6" />
                   <div>
                     <p className="font-semibold">Date</p>
-                    <p>{liveSurgery.date}</p>
+                    <p>{Workshop.date}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-6 w-6" />
                   <div>
                     <p className="font-semibold">Location</p>
-                    <p>{liveSurgery.location}</p>
+                    <p>{Workshop.location}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Award className="h-6 w-6" />
                   <div>
                     <p className="font-semibold">Category</p>
-                    <p>{liveSurgery.category}</p>
+                    <p>{Workshop.category}</p>
                   </div>
                 </div>
               </div>

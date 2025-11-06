@@ -7,7 +7,7 @@
 import { useRef } from 'react';
 import { Calendar, Clock, MapPin, Award } from 'lucide-react';
 import { useScrollSlider } from '@/hooks/useScrollSlider';
-import { dentalCourses, DentalCourse } from './coursesData';
+import { dentalCourses, DentalCourse } from '@/lib/workshops';
 
 function CourseCard({ course }: { course: DentalCourse }) {
   const levelColors: Record<DentalCourse['level'], string> = {

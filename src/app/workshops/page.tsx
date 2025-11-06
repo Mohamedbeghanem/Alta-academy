@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Calendar, Clock, MapPin, Award, Filter, Search } from 'lucide-react';
-import { dentalCourses, DentalCourse } from '@/components/mvpblocks/coursesData';
+import { dentalCourses, DentalCourse } from '@/lib/workshops';
 import Link from 'next/link';
 
 function CourseCardGrid({ course }: { course: DentalCourse }) {
