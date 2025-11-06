@@ -13,6 +13,7 @@ export interface LiveSurgerySession {
   maxAttendees?: number;
   ceCreditHours?: number;
   includedInPrice?: string[];
+  complexity?: string;
 }
 
 export const liveSurgerySessions: LiveSurgerySession[] = [
@@ -31,6 +32,7 @@ export const liveSurgerySessions: LiveSurgerySession[] = [
     maxAttendees: 10,
     ceCreditHours: 16,
     includedInPrice: ['Observation Access', 'Course Materials', 'Certificate'],
+    complexity: 'Beginner',
   },
   {
     id: '2',
@@ -47,6 +49,7 @@ export const liveSurgerySessions: LiveSurgerySession[] = [
     maxAttendees: 12,
     ceCreditHours: 3,
     includedInPrice: ['Observation Access', 'Course Materials', 'Certificate'],
+    complexity: 'Intermediate',
   },
   {
     id: '3',
@@ -63,5 +66,6 @@ export const liveSurgerySessions: LiveSurgerySession[] = [
     maxAttendees: 15,
     ceCreditHours: 2,
     includedInPrice: ['Observation Access', 'Course Materials', 'Certificate'],
+    complexity: 'Advanced',
   },
 ];

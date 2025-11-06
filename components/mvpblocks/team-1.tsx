@@ -6,7 +6,7 @@
 
 import { useState } from 'react';
 import { Calendar, Clock, MapPin, Award, Filter, Search } from 'lucide-react';
-import { DentalCourse, dentalCourses } from '@/lib/coursesData';
+import { DentalCourse, dentalCourses } from '@/components/mvpblocks/coursesData';
 
 function CourseCardGrid({ course }: { course: DentalCourse }) {
   const levelColors: Record<DentalCourse['level'], string> = {
