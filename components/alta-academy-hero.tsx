@@ -26,14 +26,6 @@ export function AltaAcademyHero() {
       gradient: "from-red-500 to-red-600"
     }
   ]
-
-  const stats = [
-    { number: "500+", label: "Students Trained", icon: Users },
-    { number: "25+", label: "Expert Instructors", icon: GraduationCap },
-    { number: "95%", label: "Success Rate", icon: Star },
-    { number: "50+", label: "Courses Available", icon: BookOpen }
-  ]
-
   return (
     <section className="relative w-full min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
       {/* Background Elements */}
@@ -107,28 +99,6 @@ export function AltaAcademyHero() {
             </div>
           </div>
         </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-6 bg-white/80 backdrop-blur-xl rounded-2xl border border-gray-200 hover:bg-white hover:border-gray-300 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-lg hover:shadow-xl"
-              style={{ animationDelay: `${1.0 + index * 0.1}s` }}
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-red-500 rounded-2xl mb-4 shadow-lg">
-                <stat.icon className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-red-600 bg-clip-text text-transparent mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
           {features.map((feature, index) => (

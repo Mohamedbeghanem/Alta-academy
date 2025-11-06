@@ -1,5 +1,5 @@
 import { AltaAcademyContact } from "@/components/alta-academy-contact"
-
+import { Footer } from "@/components/footer"
 export default function ContactPage() {
   return (
     <main className="min-h-screen pt-24">
@@ -19,6 +19,7 @@ export default function ContactPage() {
 
       {/* Contact Section */}
       <AltaAcademyContact />
+      <Footer />
     </main>
   )
 }

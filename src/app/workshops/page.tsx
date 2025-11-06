@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Calendar, Clock, MapPin, Award, Filter, Search } from 'lucide-react';
-import { dentalCourses, DentalCourse } from '@/lib/coursesData';
+import { dentalCourses, DentalCourse } from '@/components/mvpblocks/coursesData';
 import Link from 'next/link';
 
 function CourseCardGrid({ course }: { course: DentalCourse }) {
@@ -13,7 +13,7 @@ function CourseCardGrid({ course }: { course: DentalCourse }) {
   };
 
   return (
-    <Link href={`/courses/${course.id}`}>
+    <Link href={`/workshops/${course.id}`}>
       <div className="group bg-white overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-xl">
         <div className="relative h-[240px] w-full overflow-hidden">
           <img
