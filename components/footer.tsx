@@ -66,7 +66,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <footer className="relative w-full bg-black text-white">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-green-500/5 to-red-500/5 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
@@ -83,9 +83,9 @@ export function Footer() {
                 <Image
                   src="/Altaacademy.svg"
                   alt="Alta Academy logo"
-                  width={160}
-                  height={48}
-                  className="h-12 w-auto"
+                  width={240}
+                  height={72}
+                  className="h-18 w-auto"
                 />
               </div>
               <p className="text-gray-300 leading-relaxed mb-6">
