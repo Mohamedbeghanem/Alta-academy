@@ -9,6 +9,8 @@ import { Calendar, Clock, MapPin, Award, Filter, Search } from 'lucide-react';
 import { LiveSurgerySession, liveSurgerySessions } from '@/lib/liveSurgery';
 import Link from 'next/link';
 import { Hero7 } from '@/components/hero7';
+import { Hero1 } from '@/components/hero1';
+import {Process1} from '@/components/process1';
 
 
 function LiveSurgeryCardGrid({ session }: { session: LiveSurgerySession }) {
@@ -92,30 +94,25 @@ export default function LiveSurgeryPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
-      <Hero7 />
-      <StepsSection />
-      <AltaExperience />
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      <Hero1
+        heading="Live Surgery Sessions"
+        description="Witness live surgical procedures performed by world-renowned experts. Enhance your skills and knowledge by observing real-time cases."
+        image={{
+          src: '/livesurgery01.jpeg',
+          alt: 'Live surgery session in progress',
+        }}
+      />
       <LiveSteps />
       {/* Filters Section */}
       <section className="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl py-6">
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Search */}
-            <div className="relative w-full lg:w-96">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search sessions..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
           </div>
         </div>
       </section>
-
+      <Process1 />
       {/* Courses Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">

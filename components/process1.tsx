@@ -23,12 +23,6 @@ const Process1 = () => {
       description:
         "We bring the strategy to life through careful implementation and development. Our team works collaboratively to ensure every detail meets your requirements and standards.",
     },
-    {
-      step: "04",
-      title: "Optimize & Improve",
-      description:
-        "We continuously monitor performance and gather feedback to refine and improve the solution. This iterative process ensures long-term success and growth.",
-    },
   ];
 
   return (
@@ -39,7 +33,7 @@ const Process1 = () => {
             <div className="relative w-fit text-5xl font-semibold tracking-tight lg:text-7xl">
               {" "}
               <h1 className="w-fit">Our Process</h1>
-              <Asterisk className="absolute -right-2 -top-2 size-5 text-orange-500 md:size-10 lg:-right-14" />
+              <Asterisk className="absolute -right-2 -top-2 size-5 text-red-500 md:size-10 lg:-right-14" />
             </div>
             <p className="text-foreground/50 text-base">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime
@@ -51,7 +45,7 @@ const Process1 = () => {
               variant="ghost"
               className="flex items-center justify-start gap-2"
             >
-              <CornerDownRight className="text-orange-500" />
+              <CornerDownRight className="text-red-500" />
               Get in touch
             </Button>
           </div>
