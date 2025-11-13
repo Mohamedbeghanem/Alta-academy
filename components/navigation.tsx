@@ -39,10 +39,11 @@ export function Navigation() {
                 <Image
                   src="/Altaacademy.svg"
                   alt="Alta Academy Logo"
-                  width={140}
-                  height={40}
+                  width={220}
+                  height={60}
                   priority
-                  className="h-10 w-auto"
+                  className="h-[60px] w-[220px]"
+                  style={{width: '220px !important', height: '60px !important'}}
                 />
               </Link>
             </div>
@@ -108,10 +109,11 @@ export function Navigation() {
                   <Image
                     src="/Altaacademy.svg"
                     alt="Alta Academy Logo"
-                    width={140}
-                    height={40}
+                    width={220}
+                    height={60}
                     priority
-                    className="h-10 w-auto"
+                    className="h-[60px] w-[220px]"
+                    style={{width: '220px !important', height: '60px !important'}}
                   />
                 </Link>
                 <button

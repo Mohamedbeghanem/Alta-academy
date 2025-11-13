@@ -14,17 +14,17 @@ export default function HomePage() {
         <AltaAcademyHero />
            <Hero1
         heading="Live Surgery Sessions"
-        description="Witness live surgical procedures performed by world-renowned experts. Enhance your skills and knowledge by observing real-time cases."
+        description="provide direct immersion in real clinical procedures, allowing participants to observe, interact, and learn in real time alongside expert surgeons.Our goal is to deliver reliable, modern, and immediately applicable techniques through an authentic, guided surgical experience."
         image={{
-          src: '/livesurgery01.jpeg',
+          src: '/live-Sutgery.jpeg',
           alt: 'Live surgery session in progress',
         }}
       />
                  <Hero2
-        heading="Live Surgery Sessions"
-        description="Witness live surgical procedures performed by world-renowned experts. Enhance your skills and knowledge by observing real-time cases."
+        heading="Hands on Training Workshops"
+        description="provide immersive, practice-driven learning through guided clinical workshops, allowing participants to master techniques directly on models and real clinical scenarios. Our goal is to build precise, confident practitioners through structured, step-by-step hands-on experience."
         image={{
-          src: '/livesurgery01.jpeg',
+          src: '/image00015 copy.jpeg',
           alt: 'Live surgery session in progress',
         }}
       />

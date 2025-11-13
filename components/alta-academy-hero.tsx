@@ -9,20 +9,20 @@ export function AltaAcademyHero() {
   const features = [
     {
       icon: GraduationCap,
-      title: "Expert Instructors",
-      description: "Learn from industry professionals",
+      title: "Our Mission",
+      description: "deliver high-level clinical training through Live Surgery and hands-on workshops, providing immediately applicable skills and shaping confident, fully operational practitioners.",
       gradient: "from-white to-gray-100"
     },
     {
       icon: BookOpen,
       title: "Hands-on Training",
-      description: "Practical experience with real cases",
+      description: "provide immersive, practice-driven learning through guided clinical workshops, allowing participants to master techniques directly on models and real clinical scenarios. Our goal is to build precise, confident practitioners through structured, step-by-step hands-on experience.",
       gradient: "from-white to-gray-100"
     },
     {
       icon: Award,
-      title: "Certification",
-      description: "Recognized qualifications",
+      title: "Live Surgery",
+      description: "provide direct immersion in real clinical procedures, allowing participants to observe, interact, and learn in real time alongside expert surgeons.Our goal is to deliver reliable, modern, and immediately applicable techniques through an authentic, guided surgical experience.",
       gradient: "from-white to-gray-100"
     }
   ]
