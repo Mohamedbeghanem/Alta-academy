@@ -3,6 +3,9 @@ import {
   GitPullRequest,
   Layers,
   RadioTower,
+  Video,
+  Hand,
+  TrendingUp,
   SquareKanban,
   Sparkles,
 } from "lucide-react";
@@ -23,25 +26,25 @@ interface Feature43Props {
 }
 
 const Feature43 = ({
-  title = "Why Choose Our Live Surgery Sessions?",
+  title = "Why Choose Alta Academy?",
   features = [
     {
-      heading: "Quality",
+      heading: "Excellence in Live Surgery",
       description:
-        "Built with attention to detail and best practices. Every component is thoroughly tested and follows modern React patterns for reliability and performance.",
-      icon: <GitPullRequest className="size-6" />,
+        "Real-time surgical training led by nationally and internationally recognized experts.",
+      icon: <Video className="size-6" />,
     },
     {
-      heading: "Experience",
+      heading: "Mastery Through Hands-On Practice",
       description:
-        "Crafted with user experience in mind. Each component is designed to be intuitive, accessible, and provide smooth interactions across all devices.",
-      icon: <SquareKanban className="size-6" />,
+        "Intensive hands-on sessions with protocols you can apply immediately in your clinic.",
+      icon: <Hand className="size-6" />,
     },
     {
-      heading: "Support",
+      heading: "Results-Driven Education",
       description:
-        "Comprehensive documentation and community support. Get help when you need it with detailed guides, examples, and active community assistance.",
-      icon: <RadioTower className="size-6" />,
+        "Courses designed to upgrade your skills, secure your procedures, and accelerate your clinical performance.",
+      icon: <TrendingUp className="size-6" />,
     },
   ],
 }: Feature43Props) => {

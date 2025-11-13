@@ -17,9 +17,9 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: '1',
-    name: 'Dr. Michael Chen',
-    role: 'Lead Implantologist',
-    imageUrl: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=400&h=300&auto=format&fit=crop',
+    name: 'Dr. Samir Hamimed',
+    role: 'Expert in Oral Implantology',
+    imageUrl: '/drsamirhamimed.jpeg',
     socialLinks: {
       twitter: '#',
       linkedin: '#',
@@ -27,9 +27,9 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: '2',
-    name: 'Dr. Sarah Williams',
-    role: 'Endodontics Specialist',
-    imageUrl: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=400&h=300&auto=format&fit=crop',
+    name: 'Dr. Samir Amarouche',
+    role: 'Expert in Guided Surgery',
+    imageUrl: '/drsamiramarouche.jpeg',
     socialLinks: {
       twitter: '#',
       linkedin: '#',
@@ -37,25 +37,45 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: '3',
-    name: 'Dr. James Rodriguez',
-    role: 'Prosthodontist',
-    imageUrl: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=400&h=300&auto=format&fit=crop',
+    name: 'Dr. Chaouki Selmania',
+    role: 'Expert in Oral Implantology',
+    imageUrl: '/selmaniyachaouki.jpeg',
     socialLinks: {
       twitter: '#',
       linkedin: '#',
     },
   },
-  {
+   {
     id: '4',
-    name: 'Dr. Emily Thompson',
-    role: 'Periodontist',
-    imageUrl: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&h=300&auto=format&fit=crop',
+    name: 'Dr. Adel Kara',
+    role: 'Expert in Oral Implantology',
+    imageUrl: '/placeholder.svg',
+    socialLinks: {
+      twitter: '#',
+      linkedin: '#',
+    },
+  },
+    {
+    id: '5',
+    name: 'Dr. Nawel Kara',
+    role: 'Expert in Oral Implantology',
+    imageUrl: '/placeholder.svg',
+    socialLinks: {
+      twitter: '#',
+      linkedin: '#',
+    },
+  },  {
+    id: '6',
+    name: 'Dr. Farid Ouzrourou',
+    role: 'Expert in Oral Implantology',
+    imageUrl: '/placeholder.svg',
     socialLinks: {
       twitter: '#',
       linkedin: '#',
     },
   },
 ];
+   
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (

@@ -2,25 +2,25 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { GraduationCap, BookOpen, Users, Award, ArrowRight, Play, Star, TrendingUp, CheckCircle } from "lucide-react"
+import { GraduationCap,TrendingUpIcon,BookOpen, Users, Award, ArrowRight, Play, Star, TrendingUp, CheckCircle, Target,Hand,Activity,Video } from "lucide-react"
 import Link from "next/link"
 
 export function AltaAcademyHero() {
   const features = [
     {
-      icon: GraduationCap,
+      icon: Target,
       title: "Our Mission",
       description: "deliver high-level clinical training through Live Surgery and hands-on workshops, providing immediately applicable skills and shaping confident, fully operational practitioners.",
       gradient: "from-white to-gray-100"
     },
     {
-      icon: BookOpen,
+      icon: Hand,
       title: "Hands-on Training",
       description: "provide immersive, practice-driven learning through guided clinical workshops, allowing participants to master techniques directly on models and real clinical scenarios. Our goal is to build precise, confident practitioners through structured, step-by-step hands-on experience.",
       gradient: "from-white to-gray-100"
     },
     {
-      icon: Award,
+      icon: Video,
       title: "Live Surgery",
       description: "provide direct immersion in real clinical procedures, allowing participants to observe, interact, and learn in real time alongside expert surgeons.Our goal is to deliver reliable, modern, and immediately applicable techniques through an authentic, guided surgical experience.",
       gradient: "from-white to-gray-100"
@@ -46,8 +46,8 @@ export function AltaAcademyHero() {
           <div className="space-y-8 max-w-5xl mx-auto">
             {/* Badge */}
             <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500/10 to-red-500/10 backdrop-blur-xl rounded-full border border-green-200 text-green-700 text-sm font-medium mb-6 animate-fade-in">
-              <GraduationCap className="w-4 h-4 mr-2" />
-              Implantaly Dental Clinic by Hs
+              <TrendingUpIcon className="w-4 h-4 mr-2" />
+              Alta Academy by Implantaly
             </div>
             
             {/* Main Title */}
@@ -85,15 +85,15 @@ export function AltaAcademyHero() {
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-12 pt-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-gray-700 font-medium">Expert Instructors</span>
+                <span className="text-gray-700 font-medium">Excellence in Live Surgery</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-gray-700 font-medium">Hands-on Training</span>
+                <span className="text-gray-700 font-medium">Mastery Through Hands-On Practice</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-gray-700 font-medium">Certification</span>
+                <span className="text-gray-700 font-medium">Results-Driven Education</span>
               </div>
             </div>
           </div>

@@ -24,7 +24,7 @@ interface Hero1Props {
 }
 
 const Hero2 = ({
-  badge = "Implantaly Dental Clinic By Hs",
+  badge = "Alta Academy By Implantaly",
   heading = "Live Surgery,See it,Learn it,Master it",
   description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
   buttons = {
