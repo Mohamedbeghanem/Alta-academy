@@ -10,7 +10,6 @@ import { Feature43 } from "@/components/feature43";
 export default function HomePage() {
   return (
     <main className="min-h-screen">
-      <Navigation />
       <div className="pt-16 lg:pt-20">
         <AltaAcademyHero />
            <Hero1
