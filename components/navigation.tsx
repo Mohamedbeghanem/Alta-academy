@@ -1,295 +1,164 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X, Phone, GraduationCap, BookOpen, Users, Award, Star, ArrowRight, Calendar, Mail, MapPin } from "lucide-react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { Menu, X, Phone, Home, Users, Briefcase, BookOpen, Mail } from "lucide-react"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
-  const toggleRef = useRef<HTMLButtonElement>(null)
-
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  // Handle ESC key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener("keydown", handleEscape)
-    return () => document.removeEventListener("keydown", handleEscape)
-  }, [isOpen])
-
-  // Handle click outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node) && isOpen) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [isOpen])
-
-  // Focus trap
-  useEffect(() => {
-    if (isOpen && menuRef.current) {
-      const focusableElements = menuRef.current.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      )
-      const firstElement = focusableElements[0] as HTMLElement
-      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement
-
-      const handleTabKey = (e: KeyboardEvent) => {
-        if (e.key === 'Tab') {
-          if (e.shiftKey) {
-            if (document.activeElement === firstElement) {
-              e.preventDefault()
-              lastElement.focus()
-            }
-          } else {
-            if (document.activeElement === lastElement) {
-              e.preventDefault()
-              firstElement.focus()
-            }
-          }
-        }
-      }
-
-      document.addEventListener('keydown', handleTabKey)
-      firstElement?.focus()
-
-      return () => document.removeEventListener('keydown', handleTabKey)
-    }
-  }, [isOpen])
-
+  
   const navItems = [
-    { name: "Home", href: "/", icon: GraduationCap },
-    { name: "Live surgery", href: "/live-surgery", icon: BookOpen },
-    { name: "Workshops", href: "/workshops", icon: Award },
-    { name: "About", href: "/about", icon: Users },
-    { name: "Contact", href: "/contact", icon: Phone }
+    { href: "/", label: "Home", icon: Home, description: "Welcome to Alta Academy" },
+    { href: "/about", label: "About", icon: Users, description: "Learn about our team" },
+    { href: "/live-surgery", label: "Live surgery", icon: Briefcase, description: "Witness live procedures" },
+    { href: "/workshops", label: "Workshops", icon: BookOpen, description: "Educational workshops" },
+    { href: "/contact", label: "Contact", icon: Mail, description: "Get in touch with us" },
   ]
 
-  const socialLinks = [
-    { name: "Facebook", href: "#", icon: "📘" },
-    { name: "Twitter", href: "#", icon: "🐦" },
-    { name: "LinkedIn", href: "#", icon: "💼" },
-    { name: "Instagram", href: "#", icon: "📷" }
-  ]
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   return (
     <>
-      {/* Header */}
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? "bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg" 
-            : "bg-white/80 backdrop-blur-xl"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 group mr-4">
-              <Image
-                src="/Altaacademy.svg"
-                alt="Alta Academy logo"
-                width={400}
-                height={120}
-                priority
-                className="h-20 w-auto sm:h-24 lg:h-32"
-                style={{ maxWidth: "none" }}
-              />
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="relative group text-gray-700 hover:text-green-600 transition-colors duration-300 font-medium"
-                >
-                  {item.name}
-                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-red-500 group-hover:w-full transition-all duration-300"></div>
-                </Link>
-              ))}
-              
-              {/* Desktop CTA */}
-              <Button asChild className="bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105 px-6 py-3 rounded-xl border-0">
-                <Link href="/contact" className="flex items-center">
-                  Contact Us
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <button
-              ref={toggleRef}
-              onClick={() => setIsOpen(!isOpen)}
-              aria-expanded={isOpen}
-              aria-label="Open navigation"
-              aria-controls="mobile-menu"
-              className="lg:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition-all duration-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-            >
-              <div className="w-6 h-6 relative">
-                {isOpen ? (
-                  <X className="w-6 h-6 text-gray-700" />
-                ) : (
-                  <Menu className="w-6 h-6 text-gray-700" />
-                )}
-              </div>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 z-40 lg:hidden transition-opacity duration-200"
-          style={{ backgroundColor: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(4px)' }}
-        >
-          <div
-            ref={menuRef}
-            className="absolute right-0 top-0 h-full w-full sm:w-[420px] bg-white shadow-2xl transform transition-transform duration-300 ease-out"
-          >
-            {/* Menu Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <div className="flex items-center space-x-3">
+            <div>
+              <Link href="/" className="flex items-center">
                 <Image
                   src="/Altaacademy.svg"
-                  alt="Alta Academy logo"
-                  width={420}
-                  height={126}
-                  className="h-24 w-auto"
+                  alt="Alta Academy Logo"
+                  width={140}
+                  height={40}
+                  priority
+                  className="h-10 w-auto"
                 />
-              </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                aria-label="Close navigation"
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-[15px]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden lg:flex items-center">
+              <Link 
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-emerald-500 to-red-500 hover:from-emerald-600 hover:to-red-600 transition-all duration-200 rounded-lg shadow-md hover:shadow-lg"
               >
-                <X className="w-6 h-6" />
+                Contact Us
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="flex items-center lg:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                aria-expanded={isOpen}
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+              >
+                <div className={`transition-all duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`}>
+                  {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </div>
               </button>
             </div>
+          </div>
+        </div>
+      </nav>
 
-            {/* Contact Info */}
-            <div className="p-6 border-b border-gray-200">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-green-600" />
-                  <span className="text-gray-700">+213 6661606706</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-green-600" />
-                  <span className="text-gray-700">altaacademy@implantaly.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-green-600" />
-                  <span className="text-gray-700">Alger, Algeria</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Items */}
-            <nav className="p-6">
-              <ul className="space-y-2">
-                {navItems.map((item, index) => (
-                  <li
-                    key={item.name}
-                    className="opacity-0"
-                    style={{ 
-                      animationDelay: `${index * 60}ms`,
-                      animation: 'fadeInUp 0.3s ease-out forwards'
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center space-x-3 w-full px-4 py-3 rounded-xl text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-300 font-medium text-lg tracking-wide min-h-[48px] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                    >
-                      <item.icon className="w-5 h-5" />
-                      <span>{item.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            {/* Social Links */}
-            <div className="p-6 border-t border-gray-200">
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
-                Follow Us
-              </h3>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-gray-600 hover:bg-green-100 hover:text-green-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 opacity-0"
-                    style={{ 
-                      animationDelay: `${300 + index * 100}ms`,
-                      animation: 'fadeIn 0.3s ease-out forwards'
-                    }}
-                    aria-label={social.name}
-                  >
-                    <span className="text-lg">{social.icon}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="p-6 border-t border-gray-200">
-              <Button asChild className="w-full bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105 py-4 rounded-xl border-0 text-lg font-semibold">
-                <Link href="/contact" className="flex items-center justify-center">
-                  Contact Us
-                  <ArrowRight className="w-5 h-5 ml-2" />
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+          />
+          
+          {/* Menu Content */}
+          <div className="absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl transform transition-transform duration-300 overflow-y-auto">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+                  <Image
+                    src="/Altaacademy.svg"
+                    alt="Alta Academy Logo"
+                    width={140}
+                    height={40}
+                    priority
+                    className="h-10 w-auto"
+                  />
                 </Link>
-              </Button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Navigation Items */}
+              <nav className="flex-1 py-6 px-4">
+                {navItems.map((item, index) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200 group mb-1"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    <item.icon className="w-5 h-5 text-gray-500 group-hover:text-emerald-500 group-hover:scale-110 transition-all duration-200" aria-hidden="true" />
+                    <div>
+                      <div className="font-medium">{item.label}</div>
+                      <div className="text-sm text-gray-500">{item.description}</div>
+                    </div>
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Footer */}
+              <div className="p-6 border-t border-gray-200">
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-emerald-500 to-red-500 hover:from-emerald-600 hover:to-red-600 transition-all duration-200 rounded-lg shadow-md"
+                >
+                  Contact Us
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       )}
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-      `}</style>
     </>
   )
 }
-

@@ -111,7 +111,7 @@ export default function TeamSlider() {
         <div className="relative">
           <div className="overflow-hidden">
             <div
-              className="flex gap-6 transition-transform duration-700 ease-in-out"
+              className="flex gap-6 transition-transform duration-500 ease-in-out"
               style={{
                 transform: `translateX(-${currentIndex * (320 + 24)}px)`,
               }}

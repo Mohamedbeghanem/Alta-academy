@@ -103,7 +103,7 @@ export default function LiveSurgeryPage() {
         heading="Live Surgery Sessions"
         description="Witness live surgical procedures performed by world-renowned experts. Enhance your skills and knowledge by observing real-time cases."
         image={{
-          src: '/livesurgery01.jpeg',
+          src: '/image00001.jpeg',
           alt: 'Live surgery session in progress',
         }}
       />
@@ -119,12 +119,6 @@ export default function LiveSurgeryPage() {
       {/* Courses Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">
-              {filteredSessions.length} Session{filteredSessions.length !== 1 ? 's' : ''} Found
-            </h2>
-          </div>
-
           {filteredSessions.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredSessions.map((session: LiveSurgerySession) => (

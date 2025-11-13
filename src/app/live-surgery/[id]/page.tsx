@@ -22,8 +22,8 @@ export default async function LiveSurgeryPage({ params }: { params: Promise<{ id
               <Image
                 src={liveSurgery.imageUrl}
                 alt={liveSurgery.title}
-                width={800}
-                height={600}
+                width={1000}
+                height={1000}
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
               />
               <div className="space-y-4">

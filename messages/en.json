@@ -8,7 +8,9 @@
     "blog": "Blog",
     "appointments": "Appointments",
     "contact": "Contact",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "openMenu": "Open Menu",
+    "closeMenu": "Close Menu"
   },
   "hero": {
     "title": "Welcome to Implantaly Group",

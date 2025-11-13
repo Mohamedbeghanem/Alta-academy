@@ -28,16 +28,16 @@ const Cta10 = ({
   return (
     <section className="py-32">
       <div className="container">
-        <div className="bg-green-900 text-white flex w-full flex-col gap-16 overflow-hidden rounded-lg p-8 md:rounded-xl lg:flex-row lg:items-center lg:p-12">
+        <div className="bg-green-900 text-white flex w-full flex-col gap-8 md:gap-12 lg:flex-row lg:items-center p-4 md:p-8 lg:p-12">
           <div className="flex-1">
             <h3 className="mb-3 text-2xl font-bold md:mb-4 md:text-4xl lg:mb-6">
               {heading}
             </h3>
-            <p className="text-gray-300 max-w-xl lg:text-lg">
+            <p className="text-gray-300 max-w-md lg:max-w-xl lg:text-lg">
               {description}
             </p>
           </div>
-          <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+          <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:gap-4">
             {buttons.secondary && (
               <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-green-900" asChild>
                 <a href={buttons.secondary.url}>{buttons.secondary.text}</a>
